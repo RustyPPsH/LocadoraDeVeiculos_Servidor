@@ -19,7 +19,6 @@ public void carInfo (int carID, final String carType, String brand, String model
 
 public void PersonInfo (String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) throws RemoteException;
 
-public boolean displayCarAccess () throws RemoteException;
 
 public boolean addCustomerAccess () throws RemoteException;
 
