@@ -10,13 +10,55 @@ public class ServiceImpl implements ServiceInterface {
     }
 
     @Override
-    public void CarInfo(int carID, String carType, String brand, String model, String fuelType, String gearType, int modelYear, double price) throws RemoteException {
-       
+    public boolean loginAccess(String username, String password) {
+
+        if (loginRequest == true){
+
+            //implementar o login aqui
+            return true;
+        } else {
+            return false;
+        }
+
+        
     }
 
     @Override
-    public void PersonInfo(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {
-        
+    public boolean cancelAccess(){
+        return true;
     }
+
+    @Override
+    public boolean addCarAcess(){
+        return true;
+    }
+
+    @Override
+    public boolean displayCarAccess(){
+        return true;
+    }   
+
+    @Override
+    public boolean addCustomerAccess(){
+        return true;
+    }   
+
+    @Override
+    public boolean displayCustomerAccess(){
+        return true;
+    }
+
+    @Override
+    public boolean rentingExtrasAccess(){
+        return true;
+    }
+
+    @Override
+    public boolean rentingInformationAccess(){
+        return true;
+    }
+    
+
+
     
 }
