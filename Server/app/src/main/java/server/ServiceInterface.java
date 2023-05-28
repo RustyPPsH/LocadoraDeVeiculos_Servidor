@@ -17,15 +17,11 @@ Boolean loginRequest (String username, String password, int loginMessage) throws
 
 public void carInfo (int carID, final String carType, String brand, String model, String fuelType, String gearType, int modelYear, final double price) throws RemoteException;
 
-public void PersonInfo (String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) throws RemoteException;
+public void personInfo (String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) throws RemoteException;
 
 
-public boolean addCustomerAccess () throws RemoteException;
+    
+    
 
-public boolean displayCustomerAccess () throws RemoteException;
-
-public boolean rentingExtrasAccess () throws RemoteException;
-
-public boolean rentingInformationAccess () throws RemoteException;
 
 }
