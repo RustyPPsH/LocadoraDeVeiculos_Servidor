@@ -15,7 +15,7 @@ public class ServerMain extends ServiceImpl{
             String serviceName = "Yakuza Locadora de Veiculos";
             ServiceInterface rentalServer = new ServiceImpl();
             ServiceInterface stub = (ServiceInterface) UnicastRemoteObject.exportObject(rentalServer, 0);
-            Registry registry = LocateRegistry.getRegistry();             
+            Registry registry = LocateRegistry.getRegistry(1099);             
             registry.bind(serviceName, rentalServer);
             System.out.println("Servidor no ar. Nome do objeto no servidor: \'" + serviceName + "\'");
         } catch (RemoteException re) {
