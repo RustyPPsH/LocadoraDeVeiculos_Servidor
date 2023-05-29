@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package server;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
-/**
- *
- * @author RafaelSonoki
- */
 public abstract class Car implements Price {
     private int carID;
     protected String carType;
@@ -23,8 +15,8 @@ public abstract class Car implements Price {
     private int modelYear;
     protected double price;
     protected double priceNew;
-    public ArrayList<GregorianCalendar> rentedDates = new ArrayList<>();
-    public ArrayList<String> rentedPrice = new ArrayList<>();
+    private List<GregorianCalendar> rentedDates = new ArrayList<>();
+    private List<String> rentedPrice = new ArrayList<>();
     private boolean childSeat;
     private boolean navigationSystem;
     private boolean snowTire;
@@ -47,7 +39,6 @@ public abstract class Car implements Price {
         this.modelYear = modelYear;
         this.price = price;
     }
-    
 
     public int getCarID() {
         return carID;
@@ -120,19 +111,39 @@ public abstract class Car implements Price {
     public void setPriceNew(double priceNew) {
         this.priceNew = priceNew;
     }
-    
-    
 
     @Override
     public String toString() {
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
-        output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.YEAR));
-        output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.YEAR));
-        
-        return "INFORMACAO DO VEICULO" + "\nID=" + carID + "\nTipo=" + carType + "\nMarca=" + brand + "\nModelo=" + model + "\nCombustível=" + fuelType + "\nMarcha=" + gearType + "\nAno Modelo=" + modelYear + "\nPreço=" + price + output;
+        if (!rentedDates.isEmpty()) {
+            output.append("\n").append(formatDate(rentedDates.get(rentedDates.size() - 2)));
+            output.append("\n").append(formatDate(rentedDates.get(rentedDates.size() - 1)));
+        }
+
+        return "INFORMACAO DO VEICULO"
+                + "\nID=" + carID
+                + "\nTipo=" + carType
+                + "\nMarca=" + brand
+                + "\nModelo=" + model
+                + "\nCombustível=" + fuelType
+                + "\nMarcha=" + gearType
+                + "\nAno Modelo=" + modelYear
+                + "\nPreço=" + price
+                + output;
+    }
+
+    private String formatDate(GregorianCalendar calendar) {
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1; // Months are indexed starting from 0
+        int year = calendar.get(Calendar.YEAR);
+
+        return String.format("%02d/%02d/%04d", day, month, year);
     }
 
     public abstract double discountedPrice();
-    
+
+    public List<GregorianCalendar> getRentedDates() {
+        return rentedDates;
+    }
 }

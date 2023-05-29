@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package server;
 
-/**
- *
- * @author RafaelSonoki
- */
-public class ComfortCar extends Car{
+public class ComfortCar extends Car {
 
-    public ComfortCar(int carID, String brand, String model, String fuelType, String gearType, int modelYear, double price) {
+    public ComfortCar(int carID, String brand, String model, String fuelType, String gearType, int modelYear,
+            double price) {
         super(carID, brand, model, fuelType, gearType, modelYear, price);
         this.carType = "Comfort";
     }
@@ -19,45 +11,48 @@ public class ComfortCar extends Car{
     @Override
     public double discountedPrice() {
         priceNew = price;
-        long totalDay = (rentedDates.get(1).getTimeInMillis() - rentedDates.get(0).getTimeInMillis()) / 86400000;
-        if(7 <= totalDay && totalDay < 30){
-            priceNew = priceNew * 0.96;
-        } else if(totalDay >= 30 ){
-            priceNew = priceNew * 0.91;
+        long totalDay = (getRentedDates().get(getRentedDates().size() - 1).getTimeInMillis()
+                - getRentedDates().get(getRentedDates().size() - 2).getTimeInMillis()) / (24 * 60 * 60 * 1000);
+        if (7 <= totalDay && totalDay < 30) {
+            priceNew *= 0.96;
+        } else if (totalDay >= 30) {
+            priceNew *= 0.91;
         }
         return priceNew;
     }
 
     @Override
-    public double additionalPrice(double price, boolean childSeat, boolean navigation, boolean snowTire, boolean GPS, boolean scooter, boolean tireProtection, boolean windowProtection, boolean headlightProtection, boolean comprehensiveProtection) {
-        if(childSeat){
+    public double additionalPrice(double price, boolean childSeat, boolean navigation, boolean snowTire, boolean GPS,
+            boolean scooter, boolean tireProtection, boolean windowProtection,
+            boolean headlightProtection, boolean comprehensiveProtection) {
+        if (childSeat) {
             price += 30;
         }
-        if(navigation){
+        if (navigation) {
             price += 20;
         }
-        if(snowTire){
+        if (snowTire) {
             price += 50;
         }
-        if(GPS){
+        if (GPS) {
             price += 60;
         }
-        if(scooter){
+        if (scooter) {
             price += 15;
         }
-        if(tireProtection){
+        if (tireProtection) {
             price += 20;
         }
-        if(windowProtection){
+        if (windowProtection) {
             price += 25;
         }
-        if(headlightProtection){
+        if (headlightProtection) {
             price += 15;
         }
-        if(comprehensiveProtection){
+        if (comprehensiveProtection) {
             price += 50;
         }
         return price;
     }
-    
+
 }
