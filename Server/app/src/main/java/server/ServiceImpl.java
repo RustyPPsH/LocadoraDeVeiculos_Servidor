@@ -6,7 +6,17 @@ import java.util.ArrayList;
 
 public class ServiceImpl implements ServiceInterface {
 
-    public ServiceImpl() {
+    @Override
+    public int loginRequest(String username, String password) throws RemoteException {
+        if (username.equals("admin") && password.equals("admin")) {
+            return 1; // Successful login
+        } else if (username.isEmpty()) {
+            return 2; // Empty username
+        } else if (password.isEmpty()) {
+            return 3; // Empty password
+        } else {
+            return 9; // Invalid username or password
+        }
     }
 
     @Override

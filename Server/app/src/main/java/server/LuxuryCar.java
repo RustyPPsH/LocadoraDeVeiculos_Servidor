@@ -8,7 +8,8 @@ package server;
 
 /**
  *
- * @author RafaelSonoki
+ * @author Erick
+ * @author Rafael
  */
 public class LuxuryCar extends Car {
 
@@ -29,20 +30,20 @@ public class LuxuryCar extends Car {
     }
 
     @Override
-    public double additionalPrice(double price, boolean childSeat, boolean navigation, boolean snowTire, boolean GPS, boolean scooter, boolean tireProtection, boolean windowProtection, boolean headlightProtection, boolean comprehensiveProtection) {
+    public double additionalPrice(double price, boolean childSeat, boolean navigation, boolean wiFi, boolean gps, boolean fullTank, boolean tireProtection, boolean windowProtection, boolean headlightProtection, boolean comprehensiveProtection) {
         if(childSeat){
             price += 30;
         }
         if(navigation){
             price += 20;
         }
-        if(snowTire){
+        if(wiFi){
             price += 50;
         }
-        if(GPS){
+        if(gps){
             price += 60;
         }
-        if(scooter){
+        if(fullTank){
             price += 15;
         }
         if(tireProtection){

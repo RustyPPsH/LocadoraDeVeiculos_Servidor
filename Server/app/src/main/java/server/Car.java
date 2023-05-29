@@ -11,7 +11,8 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author RafaelSonoki
+ * @author Erick
+ * @author Rafael
  */
 public abstract class Car implements Price {
     private int carID;
@@ -27,16 +28,13 @@ public abstract class Car implements Price {
     public ArrayList<String> rentedPrice = new ArrayList<>();
     private boolean childSeat;
     private boolean navigationSystem;
-    private boolean snowTire;
-    private boolean GPS;
-    private boolean scooter;
+    private boolean wiFi;
+    private boolean gps;
+    private boolean fullTank;
     private boolean tireProtection;
     private boolean windowProtection;
     private boolean headlightProtection;
     private boolean comprehensiveDamagePackage;
-
-    public Car() {
-    }
 
     public Car(int carID, String brand, String model, String fuelType, String gearType, int modelYear, double price) {
         this.carID = carID;
@@ -130,7 +128,7 @@ public abstract class Car implements Price {
         output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.YEAR));
         output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.YEAR));
         
-        return "INFORMAÇÃO DO VEÍCULO" + "\nID=" + carID + "\nTipo=" + carType + "\nMarca=" + brand + "\nModelo=" + model + "\nCombustível=" + fuelType + "\nMarcha=" + gearType + "\nAno Modelo=" + modelYear + "\nPreço=" + price + output;
+        return "CAR'S INFORMATION" + "\nCar ID=" + carID + "\nCar Type=" + carType + "\nBrand=" + brand + "\nModel=" + model + "\nFuel Type=" + fuelType + "\nGear Type=" + gearType + "\nModel Year=" + modelYear + "\nPrice=" + price + output;
     }
 
     public abstract double discountedPrice();

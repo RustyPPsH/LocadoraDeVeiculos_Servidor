@@ -13,6 +13,8 @@ import java.rmi.RemoteException;
  */
 public interface ServiceInterface extends Remote {
 
+public int loginRequest (String username, String password) throws RemoteException;
+
 public void CarInfo (int carID, final String carType, String brand, String model, String fuelType, String gearType, int modelYear, final double price) throws RemoteException;
 
 public void PersonInfo (String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) throws RemoteException;
