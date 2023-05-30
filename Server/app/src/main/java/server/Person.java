@@ -1,17 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package server;
 
 import java.util.ArrayList;
+import java.util.List;
 
+<<<<<<< HEAD
 /**
  *
  * @author Erick
  * @author Rafael
  */
+=======
+>>>>>>> 26e41e167ad1191ef539df19cae62113f4f71945
 public class Person {
     private String name;
     private String surname;
@@ -21,9 +21,10 @@ public class Person {
     private String licenceDate;
     private String phone;
     private String mail;
-    public ArrayList<Car> rentedCars = new ArrayList<>();
+    private List<Car> rentedCars;
 
-    public Person(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {
+    public Person(String name, String surname, String nationality, String idNumber, String birthdayDate,
+            String licenceDate, String phone, String mail) {
         this.name = name;
         this.surname = surname;
         this.nationality = nationality;
@@ -32,9 +33,8 @@ public class Person {
         this.licenceDate = licenceDate;
         this.phone = phone;
         this.mail = mail;
+        this.rentedCars = new ArrayList<>();
     }
-
-
 
     public String getName() {
         return name;
@@ -67,7 +67,6 @@ public class Person {
     public String getMail() {
         return mail;
     }
-    
 
     public void setName(String name) {
         this.name = name;
@@ -92,7 +91,6 @@ public class Person {
     public void setLicenceDate(String licenceDate) {
         this.licenceDate = licenceDate;
     }
-    
 
     public void setPhone(String phone) {
         this.phone = phone;
@@ -102,11 +100,31 @@ public class Person {
         this.mail = mail;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return "\n\nCUSTOMER'S INFORMATION" + "\nName=" + name + "\nSurname=" + surname + "\nNationality=" + nationality + "\nID Number=" + idNumber + "\nBirthday Date=" + birthdayDate + "\nLicence Date=" + licenceDate + "\nPhone=" + phone + "\nMail=" + mail;
+=======
+    public List<Car> getRentedCars() {
+        return rentedCars;
+>>>>>>> 26e41e167ad1191ef539df19cae62113f4f71945
     }
 
+    public void clearRentedCars() {
+        rentedCars.clear();
+    }
+
+    @Override
+    public String toString() {
+        return "\n\nINFORMAÇÃO DO CLIENTE" +
+                "\nNome=" + name +
+                "\nSobrenome=" + surname +
+                "\nNacionalidade=" + nationality +
+                "\nID Numero=" + idNumber +
+                "\nNascimento=" + birthdayDate +
+                "\nData CNH=" + licenceDate +
+                "\nTelefone=" + phone +
+                "\nEmail=" + mail;
+    }
 
 }
-

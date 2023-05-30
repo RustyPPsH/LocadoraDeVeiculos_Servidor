@@ -1,8 +1,6 @@
 package server;
 
-
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class ServiceImpl implements ServiceInterface {
 
@@ -20,13 +18,29 @@ public class ServiceImpl implements ServiceInterface {
     }
 
     @Override
-    public void CarInfo(int carID, String carType, String brand, String model, String fuelType, String gearType, int modelYear, double price) throws RemoteException {
-       
+    public void carInfo(int carID, String carType, String brand, String model, String fuelType, String gearType,
+            int modelYear, double price) throws RemoteException {
+        switch (carType) {
+            case "Economic":
+                new EconomicCar(carID, brand, model, fuelType, gearType, modelYear, price);
+                break;
+            case "Comfort":
+                new ComfortCar(carID, brand, model, fuelType, gearType, modelYear, price);
+                break;
+            case "Luxury":
+                new LuxuryCar(carID, brand, model, fuelType, gearType, modelYear, price);
+                break;
+            default:
+                throw new RemoteException("Invalid car type.");
+        }
+        // Perform the necessary operations with the car information, such as storing it
+        // in a database.
     }
 
     @Override
-    public void PersonInfo(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {
-        
+    public void personInfo(String name, String surname, String nationality, String idNumber, String birthdayDate,
+            String licenceDate, String phone, String mail) {
+        new Person(name, surname, nationality, idNumber, birthdayDate, licenceDate, phone, mail);
     }
-    
+
 }
