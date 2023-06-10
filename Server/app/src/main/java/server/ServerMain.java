@@ -15,7 +15,7 @@ public class ServerMain {
             ServiceInterface stub = (ServiceInterface) UnicastRemoteObject.exportObject(rentalServer, 0);
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.bind(serviceName, stub);
-            System.out.println("Server is running. Object name in the server: '" + serviceName + "'");
+            System.out.println("Server is running. Object name in the server: " + serviceName);
         } catch (RemoteException re) {
             System.out.println("RemoteException: " + re.getMessage());
             re.printStackTrace();

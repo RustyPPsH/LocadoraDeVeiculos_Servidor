@@ -13,10 +13,22 @@ import java.rmi.RemoteException;
  */
 public interface ServiceInterface extends Remote {
 
-    public int loginRequest(String username, String password) throws RemoteException;
+    public int loginRequest (String username, String password) throws RemoteException;
+    
+    public boolean addPerson (String name, String surname) throws RemoteException;
 
-    public boolean addPerson(Person p) throws RemoteException;
+    public boolean updatePerson (String name, String surname) throws RemoteException;
 
-    public boolean addCar(Car e) throws RemoteException;
+    public boolean removePerson(String name, String surname) throws RemoteException;
+    
+    public boolean addCar (String brand, String model) throws RemoteException;
+
+    public boolean updateCar (String name, String surname) throws RemoteException;
+
+    public boolean removeCar (String brand, String model) throws RemoteException;
+
+    public boolean rentCar (String name, String surname, String brand, String model) throws RemoteException;
+
+    public boolean rentCarCancel (String name, String surname, String brand, String model) throws RemoteException;
 
 }
